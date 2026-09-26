@@ -1,77 +1,49 @@
-# A\* Puzzle Solver 🚀
+# A* Puzzle Solver - Sliding Puzzle Search
 
-## 📌 Overview
+Solves 8, 15 and 24 sliding puzzles with A* search, and compares three heuristics on how many nodes each one expands.
 
-Welcome to the **A*** Puzzle Solver*\*, an intelligent and efficient way to solve classic sliding puzzles like the 8-Puzzle, 15-Puzzle, and 24-Puzzle using the A\* search algorithm. This project leverages powerful heuristic techniques to minimize the search space and solve puzzles optimally.
+## At a Glance
 
-## 🎯 Features
+- **Stack:** Python, pandas
+- **Context:** CP 468 Artificial Intelligence, Wilfrid Laurier University (Assignment 1, Group 8)
+- **State:** Complete
 
-✅ **Solves sliding puzzles (8, 15, and 24-Puzzle) using A*** Search*\*\
-✅ **Three Heuristics for Optimal Performance:**
+## Features
 
-- 🔹 *Misplaced Tiles:* Counts misplaced tiles.
-- 🔹 *Manhattan Distance:* Measures the total movement required.
-- 🔹 *Linear Conflict:* Enhances Manhattan Distance with additional penalties for conflicting tiles.
+- A* search over 8, 15 and 24 puzzle boards
+- Three heuristics: misplaced tiles, Manhattan distance, and linear conflict
+- Generates 100 random solvable puzzles per run
+- Logs steps and nodes expanded per heuristic for side-by-side comparison
 
-✅ **Generates 100+ Unique Solvable Puzzles Automatically** \
-✅ **Performance Analysis for Each Heuristic** 📊\
-✅ **Python-based with clean, modular code**
+## How It Works
 
-## ⚡ Quick Start
+Each state is scored with `f(n) = g(n) + h(n)`, where `g` is moves so far and `h` is the heuristic. Linear conflict builds on Manhattan distance by adding a penalty when two tiles in the same row or column block each other, so it expands the fewest nodes of the three.
 
-### 1️⃣ Clone the Repository
-
-```bash
-   git clone https://github.com/yourusername/AStar-Puzzle-Solver.git
-   cd AStar-Puzzle-Solver
-```
-
-### 2️⃣ Install Dependencies
-
-```bash
-   pip install -r requirements.txt
-```
-
-### 3️⃣ Run the Solver
-
-```bash
-   python puzzle_solver.py
-```
-
-## 📊 Sample Output
+## Project Structure
 
 ```
-🔢 Initial Puzzle State:
-1 2 3
-4 5 6
-7 8 0
-
-🏁 Goal state achieved in 6 steps!
-🧠 Heuristic Comparisons:
-   - Misplaced Tiles: Steps = 10, Nodes Expanded = 25
-   - Manhattan Distance: Steps = 7, Nodes Expanded = 18
-   - Linear Conflict: Steps = 6, Nodes Expanded = 15
+a-search-algorithm-puzzle-solver/
+├── a1q1.py                  # 8 puzzle
+├── a1q2.py                  # 15 puzzle
+├── a1q3.py                  # 24 puzzle
+└── a-search-overview.pdf    # Write-up and heuristic performance analysis
 ```
 
-## 🏗️ Project Structure
+## Running Locally
 
-```
-📂 AStar-Puzzle-Solver/
-│── 📜 a1q1.py                  # A* Search Algorithm for 8 Puzzle
-│── 📜 a1q2.py                  # A* Search Algorithm for 15 Puzzle
-│── 📜 a1q3.py                  # A* Search Algorithm for 24 Puzzle
-│── 📜 README.md                # Overview
-│── 📜 CP468-A1-Group 8.pdf     # Comments on performance of puzzles
-│── 📜 CP468-A1-8.pdf           # Project Documentation 
-```
+1. Clone the repo and move into the solver folder:
+   ```bash
+   git clone https://github.com/nakulpatel0306/a-search-puzzle-algorithm.git
+   cd a-search-puzzle-algorithm/a-search-algorithm-puzzle-solver
+   ```
+2. Install the one dependency and run a puzzle size:
+   ```bash
+   pip install pandas
+   python a1q1.py
+   ```
 
+## Team
 
-## 📜 License
-Developed as part of **CP 468 - Artificial Intelligence** at **Wilfrid Laurier University**. 
-⚠️ Do Not Copy
+Romin Gandhi, Jenish Bharucha, Nakul Patel, Arsh Patel, Dhairya Patel, Paarth Bagga, Devarth Trivedi, Gleb Silin, Emmet Currie, Parker Riches
 
-
-## 👥 Team Members
-👨‍💻 **Romin Gandhi** | 👨‍💻 **Jenish Bharucha** | 👨‍💻 **Nakul Patel** | 👨‍💻 **Arsh Patel**  
-👨‍💻 **Dhairya Patel** | 👨‍💻 **Paarth Bagga** | 👨‍💻 **Devarth Trivedi** | 👨‍💻 **Gleb Silin**  
-👨‍💻 **Emmet Currie** | 👨‍💻 **Parker Riches**  
+Built as coursework for CP 468 at Wilfrid Laurier University. Please do not copy for academic submissions.
